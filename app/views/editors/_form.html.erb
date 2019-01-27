@@ -1,0 +1,84 @@
+<link rel="stylesheet" href=".../assets/stylesheets/site.css">
+
+<link href=".../assets/stylesheets/bootstrap.min.css" rel="stylesheet">
+<link href=".../assets/stylesheets/bootstrap-theme.min.css" rel="stylesheet">
+<link href=".../assets/stylesheets/codemirror.css" rel="stylesheet">
+<link href=".../assets/stylesheets/form_builder.css" rel="stylesheet">
+
+
+<%= form_for @editor, :html => { :class => "form-horizontal editor" } do |f| %>
+
+  <% if @editor.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@editor.errors.count, "error") %> prohibited this editor from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @editor.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :title, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:title) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.cktext_area :description, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:description) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-9">
+      <div id="problems">
+        <%= f.fields_for :problems do |problem| %>
+          <%= render 'problem_fields', f: problem %>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association 'add problem', f, :problems %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                editors_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>
+
+<script>
+  $(function() {
+    $('#problems a.remove_fields').hide();
+
+    $('#problems').on('cocoon:after-insert', function() {
+      check_content();
+    });
+    
+    $('#problems').on('cocoon:after-remove', function() {
+      check_content();
+    });
+    
+    function check_content() {
+      if($('#problems .nested-fields').length == 5) {
+        $('#problems a.add_fields').hide();
+      } else {
+        $('#problems a.add_fields').show();
+      }
+    }
+  });
+</script>

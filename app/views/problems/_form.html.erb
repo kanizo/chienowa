@@ -1,0 +1,73 @@
+<%= form_for @item do |f| %>
+  .form
+    = f.label :name
+    = f.text_field :name
+
+  .form
+    = f.label :description
+    = f.text_area :description
+    
+  .form
+    = f.label :price
+    = f.text_field :price
+    
+  %h4 Websites
+  #websites
+    = f.fields_for :websites do |website|
+      = render 'website_fields', f: website
+    .links
+      = link_to_add_association "Website を追加", f, :websites
+      
+<%= form_for @editor, :html => { :class => "form-horizontal editor" } do |f| %>
+
+  <% if @problem.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@problem.errors.count, "error") %> prohibited this problem from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @problem.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :question, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :question , :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:question) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :answer, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :answer, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:answer) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                problems_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+  
+
+
+<% end %>
+
+
+<div id="build-wrap"></div>
+
+<script>
+  jQuery($ => {
+    const fbTemplate = document.getElementById('build-wrap');
+    $(fbTemplate).formBuilder();
+  });
+</script>
