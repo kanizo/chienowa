@@ -427,7 +427,7 @@ DEPENDENCIES
   mini_magick
   mutant-rspec
   nprogress-rails
-  pg (= 0.21.0)
+  pg
   pry-byebug
   pry-coolline
   pry-rails
