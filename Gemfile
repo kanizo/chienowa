@@ -72,6 +72,7 @@ gem 'rails_safe_tasks'
 gem 'rb-readline'
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
+
 group :development do
   gem 'annotate'
   gem 'better_errors'
