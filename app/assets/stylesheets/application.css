@@ -17,7 +17,6 @@
 /*
  *= require nprogress
  */
-
-#source {
-  display: none;
-}
+/*
+ *= require_tree ../../../vendor/assets/.
+ */

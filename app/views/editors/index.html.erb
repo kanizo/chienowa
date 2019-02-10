@@ -1,24 +1,19 @@
 <%- model_class = Editor -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-</div>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th>ユーザ名</th>
+      <th>タイトル</th>
+      <th>作成日</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @editors.each do |editor| %>
       <tr>
-        <td><%= link_to editor.id, editor_path(editor) %></td>
+        <td><%= editor.user.name %></td>
         <td><%= editor.title %></td>
-        <td><%= editor.description %></td>
-        <td><%=l editor.created_at %></td>
+        <td><%= editor.created_at.strftime("%Y年%m月%d日 %H時%M分") %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       editor_path(editor), :class => 'btn btn-default btn-xs' %>

@@ -11,18 +11,14 @@
 // about supported directives.
 //
 
-//= require jquery.min
-//= require jquery-ui.min
-//= require bootstrap.min
-//= require form_builder.min
-//= require codemirror.min
-//= require formatting
 
-//= require cocoon
 //= require activestorage
-//= require turbolinks
-//= require ckeditor/init
-//= require_tree .
+
+//= require jquery 
+//= require jquery_ujs
 
 //= require nprogress
 //= require nprogress-turbolinks
+//= require turbolinks
+//= require_tree ../../../vendor/assets/.
+//= require cocoon

@@ -1,11 +1,15 @@
 class EditorsController < ApplicationController
   before_action :require_user_logged_in
   before_action :set_editor, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:destroy]
 
   # GET /editors
   # GET /editors.json
   def index
-    @editors = Editor.all
+    if logged_in?
+      @editor = current_user.editors.build  
+      @editors = current_user.editors.order('created_at DESC').page(params[:page])
+    end
   end
 
   # GET /editors/1
@@ -26,7 +30,7 @@ class EditorsController < ApplicationController
   # POST /editors
   # POST /editors.json
   def create
-    @editor = Editor.new(editor_params)
+    @editor = current_user.editors.build(editor_params)
 
     respond_to do |format|
       if @editor.save
@@ -73,5 +77,12 @@ class EditorsController < ApplicationController
     def editor_params
       params.require(:editor).permit(:title, :description,
                                      problems_attributes: [:question,:answer, :_destroy])
+    end
+    
+    def correct_user
+      @editor = current_user.editors.find_by(id: params[:id])
+      unless @editor
+        redirect_to root_url
+      end
     end
 end

@@ -7,6 +7,7 @@ ruby '2.4.1'
 gem 'rails', '~> 5.2.2'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
+gem 'mysql2'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -61,42 +62,17 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem 'devise'
 gem 'kaminari'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'ckeditor'
 gem 'cocoon'
 gem 'jquery-rails'
+gem 'trumbowyg_rails'
 gem 'nprogress-rails'
 gem 'rails_safe_tasks'
 gem 'rb-readline'
 gem 'therubyracer'
-gem 'twitter-bootstrap-rails'
-
-group :development do
-  gem 'annotate'
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'bullet'
-  gem 'guard'
-  gem 'guard-rspec'
-  gem 'guard-rubocop'
-  gem 'pry-byebug'
-  gem 'pry-coolline'
-  gem 'pry-rails'
-  gem 'rack-runtime'
-  gem 'rubocop', require: false
-  gem 'squasher'
-end
-
-group :development, :test do
-  gem 'factory_bot_rails'
-  gem 'fuubar'
-  gem 'mutant-rspec'
-  gem 'rspec-rails'
-  gem 'timecop'
-  gem 'sqlite3'
-end
 
 group :production do
   gem 'pg'

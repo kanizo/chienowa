@@ -1,0 +1,114 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "trumbowyg",
+        "scope": null,
+        "escapedName": "trumbowyg",
+        "name": "trumbowyg",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/home/ec2-user/environment/squire-test"
+    ]
+  ],
+  "_from": "trumbowyg@latest",
+  "_hasShrinkwrap": false,
+  "_id": "trumbowyg@2.14.0",
+  "_inCache": true,
+  "_location": "/trumbowyg",
+  "_nodeVersion": "10.12.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/trumbowyg_2.14.0_1548633024422_0.13788193810599747"
+  },
+  "_npmUser": {
+    "name": "alex-d",
+    "email": "demodealex@gmail.com"
+  },
+  "_npmVersion": "6.4.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "trumbowyg",
+    "scope": null,
+    "escapedName": "trumbowyg",
+    "name": "trumbowyg",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/trumbowyg/-/trumbowyg-2.14.0.tgz",
+  "_shasum": "22a383836b42f4ae988318f9c4fc89171cf02281",
+  "_shrinkwrap": null,
+  "_spec": "trumbowyg",
+  "_where": "/home/ec2-user/environment/squire-test",
+  "author": {
+    "name": "Alexandre Demode",
+    "email": "contact@alex-d.fr",
+    "url": "Alex-D"
+  },
+  "bugs": {
+    "url": "https://github.com/Alex-D/Trumbowyg/issues"
+  },
+  "dependencies": {},
+  "description": "A lightweight WYSIWYG editor",
+  "devDependencies": {
+    "del": "2.0.2",
+    "gulp": "3.9.1",
+    "gulp-autoprefixer": "2.2.0",
+    "gulp-concat": "2.6.0",
+    "gulp-header": "1.7.1",
+    "gulp-jshint": "2.1.0",
+    "gulp-livereload": "4.0.1",
+    "gulp-load-plugins": "1.5.0",
+    "gulp-minify-css": "1.2.1",
+    "gulp-newer": "1.0.0",
+    "gulp-rename": "1.2.2",
+    "gulp-sass": "4.0.2",
+    "gulp-size": "2.0.0",
+    "gulp-svgmin": "1.2.2",
+    "gulp-svgstore": "5.0.5",
+    "gulp-uglify": "1.5.4",
+    "jshint": "2.9.6",
+    "jshint-stylish": "2.2.1",
+    "vinyl-paths": "2.1.0"
+  },
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-eBOqF54WFoPYCdmuqq00+1fSw8bmWTWLHjXVQ42046RCVKBdWB0MyaxDPk9Q7vTKyI7HBvvmPBO1marCcTraAA==",
+    "shasum": "22a383836b42f4ae988318f9c4fc89171cf02281",
+    "tarball": "https://registry.npmjs.org/trumbowyg/-/trumbowyg-2.14.0.tgz",
+    "fileCount": 218,
+    "unpackedSize": 686034,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcTkPBCRA9TVsSAnZWagAANtsP/1xFGc0Mhdtaj17LjPRa\n0yPakFm3qWXo4tsu77yH54wfXyRUgYjm741DsNvQ8Spj1+PyEfFnZURGHEPG\nlXL4t792XMA8qtKE/bQCNKKNQJJVHiTaP/aYdkHpDB0ZcVV3OHp9JE85VPdt\nXm7WW4STDAvO+IJtjsoqra/dZ0lFZtC53+MoySVdyJgfxAB5Ayq7uuTKFNnc\n8/OIZHHHglYRlPX+sj002YEZzyNX6dTH8PBE5GdvKApwW7kaHb3Vn+77ABUO\nJlvHS3qIkM9HR0fZk2TAAs7ZQkBOHF2LaeAc6tLKRB0gLumD9WUbcjp3C5W7\nhOJksPoSfh3I9qgVmjNyiUfJSoSIxI/e4EZBh9v3j5UoffTLqP77aM7Xq7d7\n/pOacvmbirWeL3F52UzbL43En0C3UD/OcS25QQHhHDPsVWwCmXXpeRmLI6G4\nnm/k2pLWPXmkl/Bmmhcj0KCVsJLtUOtRNmNchE/pn2/g3iKheIeTd27KBspj\nQ6ou2yDwTWz68aH8vc45hx25vzG5oTBdM8utL3rJnnuQ0XHQNfQrZf/px6B6\nm0FyoIoxPlL/FjBtdyU4akZjD1nIoGKWDs6i3obHUKfwduuKlHN/8TvqKJvg\n/9KGm4Vhy+XXxue4z7ToHTsIlkns7vAbocXGwXT42mG7LSdo8Qcb5trvPFwW\nh/oR\r\n=mCAt\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "gitHead": "0461cf0b7d29a5a02eb45d9e9616da20f9089e8a",
+  "homepage": "http://alex-d.github.io/Trumbowyg",
+  "license": "MIT",
+  "main": "dist/trumbowyg.js",
+  "maintainers": [
+    {
+      "name": "alex-d",
+      "email": "contact@alex-d.fr"
+    }
+  ],
+  "name": "trumbowyg",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alex-D/Trumbowyg.git"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "clean": "gulp clean",
+    "start": "gulp",
+    "test": "gulp test"
+  },
+  "title": "Trumbowyg",
+  "version": "2.14.0"
+}

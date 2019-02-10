@@ -71,7 +71,6 @@ module Bootsnap
             raise unless e.name == const_name
             # If the constant was actually loaded, something else went wrong?
             raise if from_mod.const_defined?(const_name)
-            CoreExt::ActiveSupport.without_bootsnap_cache { super }
           end
 
           # Signature has changed a few times over the years; easiest to not

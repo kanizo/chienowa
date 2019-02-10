@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_25_082437) do
+ActiveRecord::Schema.define(version: 2019_02_01_114256) do
 
-  create_table "ckeditor_assets", force: :cascade do |t|
+  create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "data_file_name", null: false
     t.string "data_content_type"
     t.integer "data_file_size"
@@ -24,30 +24,34 @@ ActiveRecord::Schema.define(version: 2019_01_25_082437) do
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
-  create_table "editors", force: :cascade do |t|
+  create_table "editors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_editors_on_user_id"
   end
 
-  create_table "problems", force: :cascade do |t|
+  create_table "problems", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "question"
     t.text "answer"
-    t.integer "editor_id"
+    t.bigint "editor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["editor_id"], name: "index_problems_on_editor_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
+    t.text "profile"
   end
 
+  add_foreign_key "editors", "users"
+  add_foreign_key "problems", "editors"
 end

@@ -6,5 +6,9 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   
-  has_many :editors
+  validates :profile, length: { maximum: 160 }
+  
+  has_many :editors, dependent: :destroy
+  
+  mount_uploader :image, MessageImageUploader
 end
