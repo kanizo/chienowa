@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    models:
+      editor: エディター
+      problem: 問題
+      user: ユーザー
+    attributes:
+      editor:
+        title: タイトル
+        description: 内容
+      problem:
+        question: 質問
+        answer: 解答（例）

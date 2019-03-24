@@ -1,0 +1,37 @@
+<% if user_signed_in? %>
+  <% unless @editor.like?(current_user) %>
+    <div id="link-mark" class="btn btn-info" role="button" data-editor_id="<%= @editor.id %>"> いいね！<%= editor.likes_count %></div>
+  <% else %>
+    <div id="link-mark" class="btn btn-outline-info" role="button" data-editor_id="<%= @editor.id %>"> いいね！を取り消す <%= editor.likes_count %></div>
+  <% end %>
+<% end %>
+
+<script>
+  $(function(){
+    // id="link-mark"の箇所(いいねボタン)をクリックしたら
+    $('#link-mark').on('click', function(){
+      // 非同期でlikes#createに処理を送信＋その時に店舗情報(shop_id)を渡す
+      $.ajax({
+        url: '/likes',
+        type: 'POST',
+        data: {editor_id: $(this).data('editor_id')},
+        success: function() {
+          console.log('成功');
+        }
+      })
+      // 処理が上手く行ったらボタンを切り替えて
+      .done((data) => {
+        if ($(this).text() === 'いいね！') {
+          $(this).text('いいね！を取り消す').removeClass('btn-info').addClass('btn-outline-info');
+        } else if ($(this).text() === 'いいね！を取り消す') {
+          $(this).text('いいね！').removeClass('btn-outline-info').addClass('btn-info');
+        }
+        location.reload();
+      })
+      // 処理が上手く行かなかったら失敗の旨を伝えるアラートを表示
+      .fail((data) => {
+        alert('いいね！に失敗しました');
+      })
+    });
+  });
+</script>

@@ -1,12 +1,20 @@
-<% if logged_in? %>
-  <p>ログイン完了ユーザ: <%= current_user.name %></p>
-  <%= link_to 'start!', 'editors/index', class: 'btn btn-lg btn-primary' %>
-<% else %>
-  <div class="center jumbotron">
-    <div class="text-center">
-      <h1>T and S</h1>
-      <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
-      <%= link_to 'Login', login_path, class: 'btn btn-lg btn-primary' %>
-    </div>
+<h1>TandS</h1>
+
+<% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
+  <!-- ユーザーがログインしていた時の処理 -->
+
+  <h4> ユーザーネーム： <%= current_user.name %> </h4>
+  <h4> メールアドレス： <%= current_user.email %> </h4>
+  <%= image_tag current_user.gravatar_url%>
+  <div class="gravatar_edit">
+    <%= gravatar_for(current_user) %>
+    <a href="http://gravatar.com/emails" target="_blank">change</a>
   </div>
+  <%= link_to "進む", lectures_path %>
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> <!-- ログアウトをする -->
+<% else %>
+  <!-- ユーザーがログインしていなかった時の処理 -->
+  <h2> 現在ログインしていません </h2>
+  <%= link_to "ログイン", new_user_session_path, class: 'post' %> <!-- ログイン画面に移行する -->
+  <%= link_to "新規登録", new_user_registration_path, class: 'post' %> <!-- 新規登録画面に移行する -->
 <% end %>

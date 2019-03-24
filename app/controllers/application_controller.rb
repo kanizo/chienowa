@@ -1,13 +1,17 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  include SessionsHelper
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name]) # 新規登録時(sign_up時)にnameというキーのパラメーターを追加で許可する
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :image, :profile])
+  end
+  
+  def after_sign_in_path_for(resource)
+    lectures_path # ログイン後に遷移するpathを設定
+  end
 
   private
 
-  def require_user_logged_in
-    unless logged_in?
-      redirect_to login_url
-    end
-  end
 end

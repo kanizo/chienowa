@@ -1,5 +1,5 @@
 class ToppagesController < ApplicationController
-  layout 'index'
+  layout 'top_layout'
   
   def index
   end

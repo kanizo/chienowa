@@ -22,3 +22,5 @@
 //= require turbolinks
 //= require_tree ../../../vendor/assets/.
 //= require cocoon
+
+//= require_tree

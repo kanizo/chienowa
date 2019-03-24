@@ -73,6 +73,8 @@ gem 'nprogress-rails'
 gem 'rails_safe_tasks'
 gem 'rb-readline'
 gem 'therubyracer'
+gem 'gravtastic'
+gem 'counter_culture', '~> 1.8'
 
 group :production do
   gem 'pg'

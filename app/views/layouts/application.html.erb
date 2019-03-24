@@ -52,10 +52,6 @@
     <![endif]-->
   </head>
   <body>
-    <div class="container">
-      <%= render 'layouts/flash_messages' %>
-
-    </div>
     <div class="navbar navbar-default navbar-static-top">
       <div class="container">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -63,24 +59,28 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">TandS</a>
+        <a class="navbar-brand" href="#">Tands</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <% if logged_in? %>
+          <% if user_signed_in? %>
             <ul class="nav navbar-nav">
-              <li><%= link_to "Student", lectures_index_path  %></li>
-              <li><%= link_to "Teacher", editors_index_path  %></li>
-              <li><%= link_to "Profile", user_path(current_user)  %></li>
+              <li>
+                <%= link_to "Student", lectures_path  %>
+              </li>
+              <li><%= link_to "Teacher", editors_path  %></li>
+              <li><%= link_to "Profile", edit_user_registration_path  %></li>
             </ul>
           <% end %>
         </div>
       </div>
     </div>
+    <div class="container col-lg-9">
+      <%= render 'layouts/flash_messages' %>
 
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-lg-10">
           <%= yield %>
- 
         </div>
       <div>
       

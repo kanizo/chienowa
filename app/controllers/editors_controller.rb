@@ -1,12 +1,12 @@
 class EditorsController < ApplicationController
-  before_action :require_user_logged_in
+  before_action :authenticate_user!
   before_action :set_editor, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:destroy]
 
   # GET /editors
   # GET /editors.json
   def index
-    if logged_in?
+    if user_signed_in?
       @editor = current_user.editors.build  
       @editors = current_user.editors.order('created_at DESC').page(params[:page])
     end
@@ -15,6 +15,8 @@ class EditorsController < ApplicationController
   # GET /editors/1
   # GET /editors/1.json
   def show
+    @editor = Editor.find(params[:id])
+    @problems = @editor.problems.order('created_at DESC')
   end
 
   # GET /editors/new
